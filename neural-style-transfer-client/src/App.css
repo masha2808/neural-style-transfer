@@ -1,0 +1,165 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.header {
+  padding: 10px;
+  color: white;
+  background-color: rgb(60, 96, 204);
+}
+
+.style-transfer-page {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 30px;
+}
+
+.images {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.image {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 10px;
+  width: fit-content;
+}
+
+.image img, .result-image img {
+  height: 230px;
+  object-fit: contain;
+}
+
+.image-buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+button {
+  outline: none;
+  border: none;
+}
+
+.image label, button {
+  width: fit-content;
+  height: fit-content;
+  display: block;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 15px;
+  line-height: 18px;
+  font-weight: bold;
+  color: white;
+  background-color: rgb(60, 96, 204);
+}
+
+.image label:hover, button:hover {
+  cursor: pointer;
+  background-color: rgb(45, 75, 164);
+}
+
+.run-button {
+  font-size: 20px;
+  line-height: 25px;
+  padding: 15px;
+}
+
+.image-list-modal-wrapper,
+.loader-wrapper {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(220, 220, 220, 0.8);
+}
+
+/* .image-list-modal-wrapper {
+  background-color: rgba(110, 110, 110, 0.5);
+} */
+
+.image-list-modal {
+  width: 50%;
+  height: 75%;
+  border-radius: 5px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.image-list-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 10px;
+  border-top: 1px solid lightgray;
+}
+
+.image-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 10px;
+  overflow-y: auto;
+}
+
+.image-list img {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  margin: 10px;
+}
+
+.image-list img:hover {
+  cursor: pointer;
+}
+
+.image-list img.selected {
+  border: 3px solid rgb(60, 96, 204);
+  border-radius: 5px;
+}
+
+.result-image {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: fit-content;
+}
+
+.loader {
+  width: 50px;
+  padding: 8px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: rgb(60, 96, 204);
+  --_m: 
+    conic-gradient(#0000 10%,#000),
+    linear-gradient(#000 0 0) content-box;
+  -webkit-mask: var(--_m);
+          mask: var(--_m);
+  -webkit-mask-composite: source-out;
+          mask-composite: subtract;
+  animation: l3 1s infinite linear;
+}
+@keyframes l3 {to{transform: rotate(1turn)}}
